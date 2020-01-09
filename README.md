@@ -21,7 +21,7 @@ sys	0m0.012s
 ```
 
 ```sh
-time ./nbody.zig-1.run 50000000 #zig
+$ time ./nbody.zig-1.run 50000000 #zig
 -0.169075164
 -0.169059907
 
@@ -41,7 +41,7 @@ sys	0m0.028s
 ```
 
 ```sh
-time ./spectralnorm 5500 #zig
+$ time ./spectralnorm 5500 #zig
 1.274224153
 
 real	0m0.586s
@@ -50,7 +50,7 @@ sys	0m0.052s
 ```
 
 ```sh
-time ./spectralnorm.go.run 5500 #go
+$ time ./spectralnorm.go.run 5500 #go
 1.274224153
 
 real	0m1.141s
@@ -60,7 +60,7 @@ sys	0m0.004s
 
 ```sh
 # TODO: make this concurrent
-time ./spectralnorm.go.zig.run 5500 #zig
+$ time ./spectralnorm.go.zig.run 5500 #zig
 1.274224153
 
 real	0m4.399s
@@ -70,7 +70,7 @@ sys	0m0.016s
 
 ### pidigits
 ```sh
-./pidigits.gcc-1_run 10000 #c
+$ time ./pidigits.gcc-1_run 10000 #c
 ...
 real	0m0.646s
 user	0m0.645s
@@ -78,7 +78,7 @@ sys	0m0.000s
 ```
 
 ```sh
-time ./pidigits-gmp 10000 #zig
+$ time ./pidigits-gmp 10000 #zig
 ...
 real	0m0.642s
 user	0m0.638s
