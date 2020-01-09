@@ -3,7 +3,10 @@ benchmarksgame implementations in zig
 
 https://benchmarksgame-team.pages.debian.net/benchmarksgame/description/summary.html
 
+Until I figure out how to publish these solutions on the benchmarksgame website, I will keep them here.
+
 # measurements
+Some very naive performance measurements.  These are simply first run timings.
 ```
 OS: Debian GNU/Linux 10 (buster) x86_64
 CPU: Intel i7-4790 (8) @ 4.000GHz
