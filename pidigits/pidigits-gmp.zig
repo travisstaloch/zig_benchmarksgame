@@ -4,11 +4,12 @@
 // Contributed by Mr Ledrug
 // Translated to zig by Travis Staloch
 // MAKE:
-// $ zig build-exe pidigits-gmp.zig --library gmp --library c --library-path /usr/lib/x86_64-linux-gnu/ -isystem /usr/include/x86_64-linux-gnu/
+// $ zig build-exe pidigits-gmp.zig -lgmp -lc --library-path /usr/lib/x86_64-linux-gnu/ -isystem /usr/include/x86_64-linux-gnu/
 
 const std = @import("std");
 
 const gmp = @cImport(@cInclude("gmp.h"));
+const c = @cImport(@cInclude("stdio.h"));
 
 const ui = u32;
 var tmp1: gmp.mpz_t = undefined;
@@ -23,6 +24,7 @@ pub fn main() !void {
     defer std.process.argsFree(a, args);
     const n = try std.fmt.parseInt(u32, args[1], 10);
     const stdout = &std.io.getStdOut().outStream().stream;
+    var buf: [10]u8 = undefined;
 
     gmp.mpz_init(&tmp1);
     gmp.mpz_init(&tmp2);
@@ -43,10 +45,12 @@ pub fn main() !void {
         if (d != extract_digit(4))
             continue;
 
-        _ = try stdout.write(&[_]u8{'0' + @truncate(u8, d)});
+        _ = c.putchar('0' + @truncate(u8, d));
         i += 1;
-        if (i % 10 == 0)
-            _ = try stdout.print("\t:{}\n", .{i});
+
+        if (i % 10 == 0) {
+            _ = c.printf("\t:%u\n", i);
+        }
         eliminate_digit(d);
     }
 }

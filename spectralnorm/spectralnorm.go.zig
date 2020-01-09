@@ -8,6 +8,9 @@
 // MAKE, RUN:
 // $ zig build-exe --release-fast --name spectralnorm.go.zig.run spectralnorm.go.zig && time ./spectralnorm.go.zig.run 5500
 
+// currently incomplete.
+// this solution isn't concurrent and thus takes 4x as long as the go solution
+
 const std = @import("std");
 const warn = std.debug.warn;
 pub const io_mode = .evented;
